@@ -19,7 +19,7 @@ Learn the React Fundamentals, theory together pratice.
 - webpack
 
 ## Other Lessons 🔖😲
-
+- prop-types
 
 ##
 
