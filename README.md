@@ -17,7 +17,7 @@ Learn the React Fundamentals, theory together pratice.
 - react
 - babel
 - webpack
-
+- styled components
 ## Other Lessons 🔖😲
 - prop-types
 - sass and sass modules

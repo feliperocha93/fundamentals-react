@@ -4,7 +4,7 @@ import Post from '../Post';
 import Header from '../Header';
 import { ThemeProvider } from '../../context/ThemeContext';
 
-import styles from './App.scss';
+import { Title } from "./styles";
 
 function App() {
   const [posts, setPosts] = useState([
@@ -21,13 +21,14 @@ function App() {
         title: `Title#0${prevState.length + 1}`,
         subtitle: `Sub$0${prevState.length + 1}`,
         likes: 50,
-        read: false
+        read: false,
+        removed: false,
       },
     ]);
   }
 
   function handleRemovePost(postId) {
-    setPosts((prevState) => prevState.mao(
+    setPosts((prevState) => prevState.map(
       post => (
         post.id === postId 
           ? { ...post, removed: true }
@@ -39,7 +40,7 @@ function App() {
   return (
     <ThemeProvider>
       <Header>
-        <h2 className={styles.title}>Posts da Semana</h2>
+        <Title as="h2">Posts da Semana</Title>
       </Header>
       <button onClick={handleRefresh}>
         Atualizar
