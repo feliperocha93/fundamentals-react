@@ -2,29 +2,37 @@ import React, { useState } from "react";
 
 import Post from "./Post";
 import Header from "./Header";
+import { ThemeProvider } from './ThemeContext';
 
 function App() {
   const [posts, setPosts] = useState([
-    { id: Math.random(), title: 'Title#01', subtitle: 'Sub#01', likes: 11},
-    { id: Math.random(), title: 'Title#02', subtitle: 'Sub#02', likes: 5},
-    { id: Math.random(), title: 'Title#03', subtitle: 'Sub#03', likes: 20},
+    { id: Math.random(), title: 'Title#01', subtitle: 'Sub#01', likes: 11, read:false},
+    { id: Math.random(), title: 'Title#02', subtitle: 'Sub#02', likes: 50, read:true},
+    { id: Math.random(), title: 'Title#03', subtitle: 'Sub#03', likes: 20, read:false},
   ]);
 
   function handleRefresh() {
-    setPosts([
-      ...posts,
+    setPosts((prevState) => [
+      ...prevState,
       {
         id: Math.random(),
-        title: `Title#0${posts.length + 1}`,
-        subtitle: `Sub$0${posts.length + 1}`,
+        title: `Title#0${prevState.length + 1}`,
+        subtitle: `Sub$0${prevState.length + 1}`,
         likes: 50,
+        read: false
       },
     ]);
   }
 
+  function handleRemovePost(postId) {
+    setPosts((prevState) => [
+      ...prevState.filter(post => post.id !== postId)
+    ])
+  }
+
   return (
-    <>
-      <Header title="JStack's Blog">
+    <ThemeProvider>
+      <Header>
         <h2>Posts da Semana</h2>
       </Header>
       <button onClick={handleRefresh}>
@@ -36,14 +44,11 @@ function App() {
       {posts.map(post => (
         <Post 
           key={post.id}
-          likes={post.likes}
-          post={{
-            title: post.title,
-            subtitle: post.subtitle,
-          }}
+          onRemove={handleRemovePost}
+          post={post}
         />
       ))}
-    </>
+    </ThemeProvider>
   );
 }
 
