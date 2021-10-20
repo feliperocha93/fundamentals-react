@@ -21,6 +21,7 @@ Learn the React Fundamentals, theory together pratice.
 ## Other Lessons 🔖😲
 - prop-types
 - sass and sass modules
+- theming with styled components
 
 ##
 
