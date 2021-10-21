@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, createContext } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import GlobalStyle from './styles/global';
@@ -6,8 +6,11 @@ import Layout from './components/Layout';
 
 import themes from './styles/themes';
 
+export const Context = createContext();
+
 function App() {
-  const [theme, setTheme] = useState('dark');
+  
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
 
   const currentTheme = useMemo(() => {
     return themes[theme] || themes.dark;
@@ -17,13 +20,17 @@ function App() {
     setTheme((prevState) => prevState === 'dark' ? 'light' : 'dark');
   };
 
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+    //TODO: Passar onToggleTheme e selectedTheme vie Context
+  }, [theme]);
+
   return (
     <ThemeProvider theme={currentTheme}>
-      <GlobalStyle />
-      <Layout
-        onToggleTheme={handleToggleTheme}
-        selectedTheme={theme}
-      />
+      <Context.Provider value={{ theme, handleToggleTheme }}>
+        <GlobalStyle />
+        <Layout />
+      </Context.Provider>
     </ThemeProvider>
   );
 };

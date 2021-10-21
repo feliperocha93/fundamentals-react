@@ -1,9 +1,9 @@
-# My Contacts API 📚💻🎓
+# React Fundamentals 📚💻🎓
 This is a simple React App created without CRA, using Babel and Webpack. It was done in [JStack](https://jstack.com.br/]) course, module "React Fundamentals", translated from Portuguese, *Fundamentos do React*.
 
 ## Running the app 🏃🏼‍♂🔥
 ```
-$ git clone bla-bla-bla
+$ git clone https://github.com/feliperocha93/fundamentals-react.git
 
 $ yarn add
 
@@ -11,17 +11,20 @@ $ yarn dev
 ```
 
 ## Goals ⚽🥅
-Learn the React Fundamentals, theory together pratice.
+To Learn the React Fundamentals, theory together the pratice.
 
 ## Main Lessons 📑👩🏿‍🎓
-- react
-- babel
-- webpack
-- styled components
+- React
+- Babel
+- Webpack
+- Styled Components
+- ContextAPI
+- React Hooks
+
 ## Other Lessons 🔖😲
-- prop-types
-- sass and sass modules
-- theming with styled components
+- Prop-types
+- SASS and SASS modules
+- Theming with Styled Components
 
 ##
 
