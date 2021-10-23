@@ -18,7 +18,6 @@ export const Nav = styled.nav`
 `;
 
 export const Container = styled.div`
-  position: relative;
-  min-height: 372px;
+  min-height: 440px;
   height: calc(100vh - 278px);
 `;
