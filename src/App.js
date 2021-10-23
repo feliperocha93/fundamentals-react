@@ -9,7 +9,6 @@ import themes from './styles/themes';
 export const Context = createContext();
 
 function App() {
-  
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
 
   const currentTheme = useMemo(() => {
@@ -22,7 +21,6 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem('theme', theme);
-    //TODO: Passar onToggleTheme e selectedTheme vie Context
   }, [theme]);
 
   return (

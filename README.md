@@ -20,6 +20,7 @@ To Learn the React Fundamentals, theory together the pratice.
 - Styled Components
 - ContextAPI
 - React Hooks
+- React Router
 
 ## Other Lessons 🔖😲
 - Prop-types
